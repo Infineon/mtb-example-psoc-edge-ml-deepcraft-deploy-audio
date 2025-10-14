@@ -7,8 +7,8 @@
 #
 ################################################################################
 # \copyright
-# Copyright 2025, Cypress Semiconductor Corporation (an Infineon company)
-# SPDX-License-Identifier: Apache-2.0
+# (c) 2025, Infineon Technologies AG, or an affiliate of Infineon
+# Technologies AG.  SPDX-License-Identifier: Apache-2.0
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ VERBOSE=
 # Neural Network Configuration. Options include
 #
 # float    -- floating point for the input data and weights
-# int8x8   -- 8-bit fixed-point for the input data and weights
+# int8x8   -- 8-bit fixed-point for the input data and weights (this is supported by default)
 NN_TYPE=int8x8
 
 # Choose the inference engine
@@ -104,8 +104,6 @@ DEFINES+=ML_DEEPCRAFT_CM55
 DEFINES+=CY_ML_MODEL_MEM=.cy_socmem_data
 DEFINES+=CY_ML_ARENA_MEM=.cy_socmem_data
 COMPONENTS+=CMSIS_DSP
-SEARCH+=../shared_src/
-SEARCH+=../Models
 endif
 
 # Depending which Neural Network Type, add a specific DEFINE and COMPONENT
@@ -152,6 +150,11 @@ PREBUILD=
 # Custom post-build commands to run.
 POSTBUILD=
 
+# Ignore the cm55 source files when CPU is cm33
+ifeq ($(ML_DEEPCRAFT_CPU),cm33)
+CY_IGNORE+=./model/model.c
+CY_IGNORE+=./audio.c
+endif
 
 ################################################################################
 # Paths
