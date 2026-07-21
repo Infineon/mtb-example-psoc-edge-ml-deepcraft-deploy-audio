@@ -11,7 +11,7 @@ This code example has a three project structure: CM33 secure, CM33 non-secure, a
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-psoc-edge-ml-deepcraft-deploy-audio)
 
-[Provide feedback on this code example.](https://yourvoice.infineon.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyNDE1MjMiLCJTcGVjIE51bWJlciI6IjAwMi00MTUyMyIsIkRvYyBUaXRsZSI6IlBTT0MmdHJhZGU7IEVkZ2UgTUNVOiBNYWNoaW5lIGxlYXJuaW5nIOKAkyBERUVQQ1JBRlQmdHJhZGU7IGRlcGxveSBhdWRpbyIsInJpZCI6Im5pY2hvbGFzLnNoYXJwQGluZmluZW9uLmNvbSIsIkRvYyB2ZXJzaW9uIjoiMi4yLjAiLCJEb2MgTGFuZ3VhZ2UiOiJFbmdsaXNoIiwiRG9jIERpdmlzaW9uIjoiTUNEIiwiRG9jIEJVIjoiSUNXIiwiRG9jIEZhbWlseSI6IlBTT0MifQ==)
+[Provide feedback on this code example.](https://yourvoice.infineon.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyNDE1MjMiLCJTcGVjIE51bWJlciI6IjAwMi00MTUyMyIsIkRvYyBUaXRsZSI6IlBTT0MmdHJhZGU7IEVkZ2UgTUNVOiBNYWNoaW5lIGxlYXJuaW5nIOKAkyBERUVQQ1JBRlQmdHJhZGU7IGRlcGxveSBhdWRpbyIsInJpZCI6Im5pY2hvbGFzLnNoYXJwQGluZmluZW9uLmNvbSIsIkRvYyB2ZXJzaW9uIjoiMi4yLjEiLCJEb2MgTGFuZ3VhZ2UiOiJFbmdsaXNoIiwiRG9jIERpdmlzaW9uIjoiTUNEIiwiRG9jIEJVIjoiSUNXIiwiRG9jIEZhbWlseSI6IlBTT0MifQ==)
 
 See the [Design and implementation](docs/design_and_implementation.md) for the functional description of this code example.
 
@@ -33,6 +33,7 @@ See the [Design and implementation](docs/design_and_implementation.md) for the f
 > **Notes:**
 > - IAR is not supported by the TensorFlow Lite for Microcontrollers (TFLM) library.  
 > - This code example fails to build in RELEASE mode with the GCC_ARM toolchain v14.2.1 as it does not recognize some of the Helium instructions of the CMSIS-DSP library. This issue is not present in the ARM&reg; Compiler for Embedded (armclang).
+> - This code example currently supports the VFP_SELECT option "hardfp" only. Setting "softfp" may cause build failure.
 
 ## Supported kits (make variable 'TARGET')
 
@@ -129,6 +130,7 @@ Document title: *CE241523* – *PSOC&trade; Edge MCU: Machine learning – DEEPC
  2.0.0   | GitHub release
  2.1.0   | Modified CE structure <br> Updated PDM mic configurations
  2.2.0   | Added support for KIT_PSE84_HMI
+ 2.2.1   | Added a check for unsupported build configuration.
 <br>
 
 
